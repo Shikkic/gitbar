@@ -14,15 +14,22 @@ bitbar metadata
 
 var gh = require('gh-scrape'),
     userUrl = "http://www.github.com/shikkic",
-    heartEmoji = String.fromCharCode(0xD83D, 0xDC9F); 
+    heartEmoji = String.fromCharCode(0xD83D, 0xDC9F),
+    brokenHeartEmoji = String.fromCharCode(0xD83D, 0xDC94),
+    visibleEmoji; 
 
 gh.scrapeContributionDataAndStats("http://www.github.com/shikkic", function(data) {
     if (data) {
-        console.log(heartEmoji, "Contributions Today: ", data.commitsToday, heartEmoji);
+        var commitsToday = data.commitsToday,
+            currentStreak = data.statsData.currentStreak,
+            totalContributions = data.statsData.totalContributions,
+            visibleEmoji = data.commitsToday ? heartEmoji : brokenHeartEmoji;
+
+        console.log(visibleEmoji, "Contributions Today: ", commitsToday, visibleEmoji);
         console.log("---");
-        console.log("Current Streak: ", data.statsData.currentStreak + " days");
-        console.log("Total Contributions: ", data.statsData.totalContributions);
+        console.log("Current Streak: ", currentStreak + " days");
+        console.log("Total Contributions: ", totalContributions);
     } else {
-        console.log(emjoi + "error");
+        console.log(brokenHeartEmoji + "error");
     }
 });
