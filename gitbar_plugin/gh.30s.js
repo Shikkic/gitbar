@@ -13,7 +13,7 @@ bitbar metadata
 */
 
 var gh = require('gh-scrape'),
-    userUrl = "http://www.github.com/shikkic",
+    userUrl = "http://www.github.com/<YOUR USERNAME HERE>",
     heartEmoji = String.fromCharCode(0xD83D, 0xDC9F),
     brokenHeartEmoji = String.fromCharCode(0xD83D, 0xDC94),
     visibleEmoji; 
