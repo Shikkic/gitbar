@@ -12,7 +12,7 @@
 */
 
 // User Settings
-const userUrl = "<YOUR_GITHUB_NAME_HERE>",
+const userUrl = "http://github.com/<YOUR_GITHUB_NAME_HERE>",
     contributionGoal = "YOUR_CONTRIBUTION_GOAL_HERE";
     
 // Font, Color, and Emoji Settings
@@ -26,9 +26,14 @@ const redText = "| color=red size=13",
 var gh = require('gh-scrape'),
     visibleEmoji; 
 
-// Scrape Github Stats for <userUrl> 
-gh.scrapeContributionDataAndStats("http://www.github.com/shikkic", function(data) { 
+// Check to Make Sure User Set Default Configs    
+if (userUrl === "http://github.com/<YOUR_GITHUB_NAME_HERE>") {
+    console.log(brokenHeartEmoji, "Please Set the Default Configs", brokenHeartEmoji);
+	process.exit()
+}
 
+// Scrape Github Stats for <userUrl> 
+gh.scrapeContributionDataAndStats(userUrl, function(data) { 
     // Validate Request Data Exists
     if (data) {
         // Retrive Request Data
