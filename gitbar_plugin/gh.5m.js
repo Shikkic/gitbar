@@ -12,8 +12,8 @@
 */
 
 // User Settings
-const userUrl = "http://github.com/<YOUR_GITHUB_NAME_HERE>",
-    contributionGoal = "YOUR_CONTRIBUTION_GOAL_HERE";
+const userUrl = "http://github.com/<YOUR_GITHUB_NAME_HERE>";
+//const contributionGoal = "YOUR_CONTRIBUTION_GOAL_HERE"; Optional Goal
     
 // Font, Color, and Emoji Settings
 const redText = "| color=red size=13",
@@ -54,9 +54,11 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
         console.log("---");
         console.log("Current Streak: ", currentStreak, currentStreakColor);
         console.log("Total Contributions: ", totalContributions, totalContributionsColor);
+        /* Comment Out for Optional Goal Tracking
         console.log("---");
         console.log("Contribution Goal: ", contributionGoal, normalText);
         console.log((totalContributions / contributionGoal * 100) + "% complete " + boldText); 
+        */
     } else {
         console.log(brokenHeartEmoji + "error" + brokenHeartEmoji);
     }
