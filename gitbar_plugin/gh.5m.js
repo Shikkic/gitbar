@@ -12,8 +12,8 @@
 */
 
 // User Settings
-const userUrl = "http://www.github.com/shikkic",
-    contributionGoal = 1000;
+const userUrl = "<YOUR_GITHUB_NAME_HERE>",
+    contributionGoal = "YOUR_CONTRIBUTION_GOAL_HERE";
     
 // Font, Color, and Emoji Settings
 const redText = "| color=red size=13",
