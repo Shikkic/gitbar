@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/shikkic/gitbar",
   "dependencies": {
+    "dotenv": "^2.0.0",
     "gh-scrape": "^1.0.10"
   }
 }
