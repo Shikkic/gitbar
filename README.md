@@ -25,20 +25,12 @@ $ npm install
 
 ### Configure
 
-In the `gitbar_plugin` folder edit the `gh.5m.js` file to include **your* username. You can also uncomment `contributionGoal` and code block on line 16 to enable goal tracking for your total commits:
+In the root folder you'll need to modify the `.env` file with **your** github username. Here you'll also be able to customize contribution goal tracking as well. Simply give the tracking value "TRUE or FALSE" to turn it off or on, and provide your ideal goal number to give yourself a percent completion.
 
-```js
-// User Settings
-const userUrl = "http://github.com/<YOUR_GITHUB_NAME_HERE>";
-//const contributionGoal = "YOUR_CONTRIBUTION_GOAL_HERE"; Optional Goal
-
-...
-
-/* Comment Out for Optional Goal Tracking
-  console.log("---");
-  console.log("Contribution Goal: ", contributionGoal, normalText);
-  console.log((totalContributions / contributionGoal * 100) + "% complete " + boldText); 
-*/
+```bash
+USER_URL="http://github.com/<YOUR_GITHUB_NAME_HERE>"
+CONTRIBUTION_GOAL_TRACKING=TRUE
+CONTRIBUTION_GOAL="1000"
 ```
 
 ### Gotchas
