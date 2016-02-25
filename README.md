@@ -1,6 +1,6 @@
 #gitbar
 
-Gitbar is a plugin for [bitbar](https://github.com/matryer/bitbar) to quickly show your github contribution stats and help set contribution goals, all on your Mac OS X Menu Bar.
+:octocat: Gitbar is a plugin for [bitbar](https://github.com/matryer/bitbar) to quickly show your github contribution stats and help set contribution goals, all on your Mac OS X Menu Bar.
 
 ![dank](http://i.imgur.com/Tra1DEW.gif)
 
