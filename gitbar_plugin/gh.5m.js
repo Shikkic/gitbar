@@ -14,7 +14,7 @@
 // Import User Setting
 require('dotenv').config({path: __dirname+'/../.env'});
 const userUrl = process.env.USER_URL;
-const contributionGoalTracking = process.CONTRIBUTION_GOAL_TRACKING;
+const contributionGoalTracking = process.env.CONTRIBUTION_GOAL_TRACKING;
 const contributionGoal = process.env.CONTRIBUTION_GOAL;
     
 // Font, Color, and Emoji Settings
@@ -61,7 +61,7 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
         if (contributionGoalTracking) {
             console.log("---");
             console.log("Contribution Goal: ", contributionGoal, normalText);
-            console.log((totalContributions / contributionGoal * 100) + "% complete " + boldText); 
+            console.log((totalContributions / contributionGoal * 100).toFixed(2) + "% complete " + boldText); 
         }
     } else {
         console.log(brokenHeartEmoji + " error " + brokenHeartEmoji, redText);
