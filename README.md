@@ -56,4 +56,4 @@ I also use the [gh-scrape](https://github.com/Shikkic/gh-scrape) to crawl github
 
 #### Suggestions, comments?
 
-Feel free to create an issue or reach out on the :speech_balloon: [bitbar slack](https://getbitbar.herokuapp.com/) @shikkic
+Feel free to create an issue or reach out on the :speech_balloon: [bitbar slack](https://getbitbar.herokuapp.com/) or twitter @shikkic
