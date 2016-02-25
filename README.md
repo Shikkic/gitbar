@@ -33,6 +33,10 @@ CONTRIBUTION_GOAL_TRACKING=TRUE
 CONTRIBUTION_GOAL="1000"
 ```
 
+Now launch bitbar and select the `gitbar_plugin` folder as your Plugin Folder.
+
+![Imgur](http://i.imgur.com/ni1YVGZ.gif)
+
 ### Gotchas
 
 If you have an error resulting from your path to node. Edit the shebang at the top of `gh.5m.js` to include the correct path.
