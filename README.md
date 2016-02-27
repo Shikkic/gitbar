@@ -2,6 +2,8 @@
 
 :octocat: Gitbar is a plugin for [bitbar](https://github.com/matryer/bitbar) to quickly show your open soure github contribution stats and help set contribution goals, all on your Mac OS X Menu Bar. :octocat:
 
+We all have private repos we tend to work on and it's really easy to neglect your OSS work. So, I created Gitbar to make daily public contributions a habit. Gitbar is a OSX Menu Bar utility that shows your daily Github stats, streaks, and contributions. You can even set goals.
+
 ![dank](http://i.imgur.com/Tra1DEW.gif)
 
 ### Prerequisites
