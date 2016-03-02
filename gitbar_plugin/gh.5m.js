@@ -61,7 +61,6 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
             console.log(visibleEmoji, " Contributions Today: ", commitsToday, visibleEmoji, contributionsTodayColor);
             console.log("---");
         }
-        console.log("Contributions Today: ", commitsToday, contributionsTodayColor);
         console.log("Current Streak: ", currentStreak, currentStreakColor);
         console.log("Total Contributions: ", totalContributions, totalContributionsColor);
         
