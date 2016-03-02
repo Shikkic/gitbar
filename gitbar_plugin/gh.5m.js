@@ -52,8 +52,9 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
         var visibleEmoji = data.commitsToday ? heartEmoji : brokenHeartEmoji;
 
         // Log Output To Bitbar
-        console.log(visibleEmoji, "Contributions Today: ", commitsToday, visibleEmoji, contributionsTodayColor);
+        console.log(visibleEmoji + " " + commitsToday + contributionsTodayColor);
         console.log("---");
+        console.log("Contributions Today: ", commitsToday, contributionsTodayColor);
         console.log("Current Streak: ", currentStreak, currentStreakColor);
         console.log("Total Contributions: ", totalContributions, totalContributionsColor);
         
@@ -64,7 +65,7 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
             console.log((totalContributions / contributionGoal * 100).toFixed(2) + "% complete " + boldText); 
         }
     } else {
-        console.log(brokenHeartEmoji + " error " + brokenHeartEmoji, redText);
+        console.log("error " + brokenHeartEmoji, redText);
     }
 
 });
