@@ -16,6 +16,7 @@ require('dotenv').config({path: __dirname+'/../.env'});
 const userUrl = process.env.USER_URL;
 const contributionGoalTracking = process.env.CONTRIBUTION_GOAL_TRACKING;
 const contributionGoal = process.env.CONTRIBUTION_GOAL;
+const compactUI = process.env.COMPACT_UI;
     
 // Font, Color, and Emoji Settings
 const redText = "| color=red size=13",
@@ -52,8 +53,14 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
         var visibleEmoji = data.commitsToday ? heartEmoji : brokenHeartEmoji;
 
         // Log Output To Bitbar
-        console.log(visibleEmoji + " " + commitsToday + contributionsTodayColor);
-        console.log("---");
+        if (compactUI == 'true') {
+            console.log(visibleEmoji + " " + commitsToday + contributionsTodayColor);
+            console.log("---");
+            console.log("Contributions Today: ", commitsToday, contributionsTodayColor);
+        } else {
+            console.log(visibleEmoji, " Contributions Today: ", commitsToday, visibleEmoji, contributionsTodayColor);
+            console.log("---");
+        }
         console.log("Contributions Today: ", commitsToday, contributionsTodayColor);
         console.log("Current Streak: ", currentStreak, currentStreakColor);
         console.log("Total Contributions: ", totalContributions, totalContributionsColor);
