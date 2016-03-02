@@ -71,7 +71,7 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
             console.log((totalContributions / contributionGoal * 100).toFixed(2) + "% complete " + boldText); 
         }
     } else {
-        console.log("error " + brokenHeartEmoji, redText);
+        console.log(brokenHeartEmoji + " error ", redText);
     }
 
 });
