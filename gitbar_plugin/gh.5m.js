@@ -42,6 +42,7 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
         // Retrive Request Data
         var commitsToday = data.commitsToday,
             currentStreak = data.statsData.currentStreak,
+            longestStreak = data.statsData.longestStreak,
             totalContributions = data.statsData.totalContributions;
         
         // Set Text Color Variables 
@@ -56,20 +57,25 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
         if (compactUI == 'true') {
             console.log(visibleEmoji + " " + commitsToday + contributionsTodayColor);
             console.log("---");
-            console.log("Contributions Today: ", commitsToday, contributionsTodayColor);
+            console.log("Contributions");
+            console.log("Today: ", commitsToday, contributionsTodayColor);
         } else {
             console.log(visibleEmoji, " Contributions Today: ", commitsToday, visibleEmoji, contributionsTodayColor);
             console.log("---");
         }
-        console.log("Current Streak: ", currentStreak, currentStreakColor);
-        console.log("Total Contributions: ", totalContributions, totalContributionsColor);
-        
-		// Log Contribution Goal tracking if enabled
+        console.log("Total: ", totalContributions, totalContributionsColor);
         if (contributionGoalTracking) {
             console.log("---");
-            console.log("Contribution Goal: ", contributionGoal, normalText);
-            console.log((totalContributions / contributionGoal * 100).toFixed(2) + "% complete " + boldText); 
+            console.log("Contribution Goal");
+            console.log("Goal: ", contributionGoal, normalText);
+            console.log("Completion: ",(totalContributions / contributionGoal * 100).toFixed(2) + "%" + boldText); 
         }
+        console.log("---");
+        console.log("Streaks");
+        console.log("Current: ", currentStreak, currentStreakColor);
+        console.log("Longest: ", longestStreak, normalText);
+        
+		// Log Contribution Goal tracking if enabled
     } else {
         console.log(brokenHeartEmoji + " error ", redText);
     }
