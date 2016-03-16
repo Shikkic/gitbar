@@ -13,7 +13,8 @@
 
 // Import User Setting
 require('dotenv').config({path: __dirname+'/../.env'});
-const userUrl = process.env.USER_URL;
+const username = process.env.GITHUB_USERNAME;
+const userUrl = "http://github.com/" + username;
 const contributionGoalTracking = process.env.CONTRIBUTION_GOAL_TRACKING;
 const contributionGoal = process.env.CONTRIBUTION_GOAL;
 const compactUI = process.env.COMPACT_UI;
@@ -74,6 +75,8 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
         console.log("Streaks");
         console.log("Current: ", currentStreak, currentStreakColor);
         console.log("Longest: ", longestStreak, normalText);
+        console.log("---");
+        console.log(username + "'s" + " profile" + "| href= "+userUrl);
         
 		// Log Contribution Goal tracking if enabled
     } else {
