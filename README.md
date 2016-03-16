@@ -29,9 +29,10 @@ $ npm install
 In the root folder you'll need to modify the `.env` file with **your** GitHub username. Here you'll also be able to customize contribution goal tracking as well. Simply give the tracking value `TRUE` or `FALSE` to turn it on or off, respectively, and provide your ideal goal number to give yourself a completion percentage.
 
 ```bash
-USER_URL="http://github.com/<YOUR_GITHUB_NAME_HERE>"
-CONTRIBUTION_GOAL_TRACKING=TRUE
+GITHUB_USERNAME="<YOUR_GITHUB_NAME_HERE>"
+CONTRIBUTION_GOAL_TRACKING=true
 CONTRIBUTION_GOAL="1000"
+COMPACT_UI=true
 ```
 
 Now, launch BitBar and select the `gitbar_plugin` folder as your Plugin Folder.
