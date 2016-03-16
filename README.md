@@ -4,7 +4,7 @@
 
 Almost all of us have private repos we tend to work on, and it's really easy to neglect your OSS work. So, I created Gitbar to make daily public contributions a habit. Gitbar is a OSX Menu Bar utility that shows your daily GitHub stats, streaks, and contributions. You can even set contribution goals in the application.
 
-![dank application screenshot](http://i.imgur.com/Tra1DEW.gif)
+![dank application screenshot](http://i.imgur.com/55GxUzy.gif)
 
 ### Prerequisites
 - Must be on Mac OSX (Snow Leopard or newer (>= 10.6))
