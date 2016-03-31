@@ -23,8 +23,8 @@ const compactUI = process.env.COMPACT_UI;
 const redText = "| color=red size=14",
       normalText = "| size=14",
       boldText = "| color=black size=14",
-      heartEmoji = String.fromCharCode(0xD83D, 0xDC9F),
-      brokenHeartEmoji = String.fromCharCode(0xD83D, 0xDC94);
+      heartEmoji = ":heart_decoration:",
+      brokenHeartEmoji = ":broken_heart:";
 
 // Import Github Scraping Library
 var gh = require('gh-scrape'),
