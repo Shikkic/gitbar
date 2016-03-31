@@ -44,7 +44,7 @@ var gh = require('gh-scrape'),
 // Check to Make Sure User Set Default Configs
 if (userUrl === "http://github.com/<YOUR_GITHUB_NAME_HERE>") {
     console.log(brokenHeartEmoji, "Please Set the Default Configs", brokenHeartEmoji);
-	  process.exit()
+    process.exit();
 }
 
 // Scrape Github Stats for <userUrl>
@@ -77,6 +77,7 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
         }
         console.log("Total: ", totalContributions, totalContributionsColor);
         if (contributionGoalTracking) {
+            // Log Contribution Goal tracking if enabled
             console.log("---");
             console.log("Contribution Goal");
             console.log("Goal: ", contributionGoal, normalText);
@@ -88,8 +89,6 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
         console.log("Longest: ", longestStreak, normalText);
         console.log("---");
         console.log(username + "'s" + " profile" + "| href= "+userUrl);
-
-		// Log Contribution Goal tracking if enabled
     } else {
         console.log(brokenHeartEmoji + " error ", redText);
     }
