@@ -19,10 +19,21 @@ const contributionGoalTracking = process.env.CONTRIBUTION_GOAL_TRACKING;
 const contributionGoal = process.env.CONTRIBUTION_GOAL;
 const compactUI = process.env.COMPACT_UI;
 
+// Detect user's menu bar style
+var child_process = require('child_process');
+// Assume dark menu bar
+var boldColor = "white";
+try {
+    child_process.execSync('defaults read -g AppleInterfaceStyle', { stdio: "ignore" });
+} catch (e) {
+    // AppleInterfaceStyle not set, thus user has light menu bar style
+    boldColor = "black";
+}
+
 // Font, Color, and Emoji Settings
 const redText = "| color=red size=14",
       normalText = "| size=14",
-      boldText = "| color=black size=14",
+      boldText = "| color=" + boldColor + " size=14",
       heartEmoji = ":heart_decoration:",
       brokenHeartEmoji = ":broken_heart:";
 
@@ -69,7 +80,7 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
             console.log("---");
             console.log("Contribution Goal");
             console.log("Goal: ", contributionGoal, normalText);
-            console.log("Completion: ",(totalContributions / contributionGoal * 100).toFixed(2) + "%" + boldText);
+            console.log("Completion: ", (totalContributions / contributionGoal * 100).toFixed(2) + "% " + boldText);
         }
         console.log("---");
         console.log("Streaks");
