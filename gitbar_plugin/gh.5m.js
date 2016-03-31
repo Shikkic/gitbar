@@ -18,26 +18,26 @@ const userUrl = "http://github.com/" + username;
 const contributionGoalTracking = process.env.CONTRIBUTION_GOAL_TRACKING;
 const contributionGoal = process.env.CONTRIBUTION_GOAL;
 const compactUI = process.env.COMPACT_UI;
-    
+
 // Font, Color, and Emoji Settings
-const redText = "| color=red size=13",
-    normalText = "| size=13",
-    boldText = "| color=black size =13",
-    heartEmoji = String.fromCharCode(0xD83D, 0xDC9F),
-    brokenHeartEmoji = String.fromCharCode(0xD83D, 0xDC94);
+const redText = "| color=red size=14",
+      normalText = "| size=14",
+      boldText = "| color=black size=14",
+      heartEmoji = String.fromCharCode(0xD83D, 0xDC9F),
+      brokenHeartEmoji = String.fromCharCode(0xD83D, 0xDC94);
 
 // Import Github Scraping Library
 var gh = require('gh-scrape'),
-    visibleEmoji; 
+         visibleEmoji;
 
-// Check to Make Sure User Set Default Configs    
+// Check to Make Sure User Set Default Configs
 if (userUrl === "http://github.com/<YOUR_GITHUB_NAME_HERE>") {
     console.log(brokenHeartEmoji, "Please Set the Default Configs", brokenHeartEmoji);
-	process.exit()
+	  process.exit()
 }
 
-// Scrape Github Stats for <userUrl> 
-gh.scrapeContributionDataAndStats(userUrl, function(data) { 
+// Scrape Github Stats for <userUrl>
+gh.scrapeContributionDataAndStats(userUrl, function(data) {
     // Validate Request Data Exists
     if (data) {
         // Retrive Request Data
@@ -45,11 +45,11 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
             currentStreak = data.statsData.currentStreak,
             longestStreak = data.statsData.longestStreak,
             totalContributions = data.statsData.totalContributions;
-        
-        // Set Text Color Variables 
+
+        // Set Text Color Variables
         var contributionsTodayColor = commitsToday ? normalText : redText,
             currentStreakColor = currentStreak ? normalText : redText,
-            totalContributionsColor = totalContributions ? normalText : redText; 
+            totalContributionsColor = totalContributions ? normalText : redText;
 
         // Set Displayed Emoji
         var visibleEmoji = data.commitsToday ? heartEmoji : brokenHeartEmoji;
@@ -69,7 +69,7 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
             console.log("---");
             console.log("Contribution Goal");
             console.log("Goal: ", contributionGoal, normalText);
-            console.log("Completion: ",(totalContributions / contributionGoal * 100).toFixed(2) + "%" + boldText); 
+            console.log("Completion: ",(totalContributions / contributionGoal * 100).toFixed(2) + "%" + boldText);
         }
         console.log("---");
         console.log("Streaks");
@@ -77,7 +77,7 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
         console.log("Longest: ", longestStreak, normalText);
         console.log("---");
         console.log(username + "'s" + " profile" + "| href= "+userUrl);
-        
+
 		// Log Contribution Goal tracking if enabled
     } else {
         console.log(brokenHeartEmoji + " error ", redText);
