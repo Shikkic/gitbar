@@ -15,9 +15,16 @@
 require('dotenv').config({path: __dirname+'/../.env'});
 const username = process.env.GITHUB_USERNAME;
 const userUrl = "http://github.com/" + username;
+
+const compactUI = process.env.COMPACT_UI;
+
+// Yearly contribution goal
 const contributionGoalTracking = process.env.CONTRIBUTION_GOAL_TRACKING;
 const contributionGoal = process.env.CONTRIBUTION_GOAL;
-const compactUI = process.env.COMPACT_UI;
+
+// Daily contribution goal
+const contributionGoalDailyTracking = process.env.CONTRIBUTION_GOAL_DAILY_TRACKING;
+const contributionGoalDaily = process.env.CONTRIBUTION_GOAL_DAILY;
 
 // Detect user's menu bar style
 var child_process = require('child_process');
@@ -32,10 +39,12 @@ try {
 
 // Font, Color, and Emoji Settings
 const redText = "| color=red size=14",
-      normalText = "| size=14",
-      boldText = "| color=" + boldColor + " size=14",
-      heartEmoji = ":heart_decoration:",
-      brokenHeartEmoji = ":broken_heart:";
+    normalText = "| size=14",
+    boldText = "| color=" + boldColor + " size=14",
+    heartEmoji = ":heart_decoration:",
+    brokenHeartEmoji = ":broken_heart:",
+    chartEmoji = ":chart_with_upwards_trend:",
+    starEmoji = ":star:";
 
 // Import Github Scraping Library
 var gh = require('gh-scrape'),
@@ -65,8 +74,16 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
         // Set Displayed Emoji
         var visibleEmoji = data.commitsToday ? heartEmoji : brokenHeartEmoji;
 
+        if (contributionGoalDailyTracking == 'true') {
+            if (commitsToday >= contributionGoalDaily) {
+                visibleEmoji = starEmoji;
+            } else {
+                visibleEmoji = chartEmoji;
+            }
+        }
+
         // Log Output To Bitbar
-        if (compactUI == 'true') {
+        if (compactUI === "true") {
             console.log(visibleEmoji + " " + commitsToday + contributionsTodayColor);
             console.log("---");
             console.log("Contributions");
@@ -76,12 +93,19 @@ gh.scrapeContributionDataAndStats(userUrl, function(data) {
             console.log("---");
         }
         console.log("Total: ", totalContributions, totalContributionsColor);
-        if (contributionGoalTracking) {
-            // Log Contribution Goal tracking if enabled
+        if (contributionGoalTracking === "true") {
+            // Log Yearly Contribution Goal tracking if enabled
             console.log("---");
-            console.log("Contribution Goal");
+            console.log("Yearly Contribution Goal");
             console.log("Goal: ", contributionGoal, normalText);
             console.log("Completion: ", (totalContributions / contributionGoal * 100).toFixed(2) + "% " + boldText);
+        }
+        if (contributionGoalDailyTracking === "true") {
+            // Log Yearly Contribution Goal tracking if enabled
+            console.log("---");
+            console.log("Daily Contribution Goal");
+            console.log("Goal: ", contributionGoalDaily, normalText);
+            console.log("Completion: ", (commitsToday / contributionGoalDaily * 100).toFixed(2) + "% " + boldText);
         }
         console.log("---");
         console.log("Streaks");
